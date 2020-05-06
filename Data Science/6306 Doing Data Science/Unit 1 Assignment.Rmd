@@ -1,0 +1,79 @@
+---
+title: "Unit 1 DDS Live Session Assignment"  
+author: "Dawson"  
+date: "May 5, 2020"  
+output: html_document  
+---  
+
+```{r}
+#1. Make a bar plot for your data science profile   
+categories = c('computer programming', 'math', 'statistics', 'machine learning', 'domain    expertise','communication and presentation skills', 'data visualization')   
+ranking = c(1, 3, 4, 2, 5, 3,5)  
+categories   
+ranking  
+class(categories)  
+class(ranking)  
+Dawson = data.frame(Categories = categories, Ranking = ranking)  
+Dawson  
+barplot(Dawson$Ranking, names.arg = Dawson$Categories, main = "Dawson", xlab = "Categories", ylab = "Ranking")  
+```
+
+```{r}
+
+#2. a) Adapt population 10M from chi-sqr distribution w/ 2 dof (rchisq())
+n = 1000000
+ChiSqrPop = rchisq(n,2)
+##b) Provide Hist 
+hist(ChiSqrPop, xlim =c(0,15))
+##c) std & mean of this population
+sd(ChiSqrPop)
+mean(ChiSqrPop)
+summary(ChiSqrPop)
+##d) According to CLT, what should be the Approx sample means of sample size 50 from righ skew + What should be the mean & std error of the mean 
+### The mean & standard deviation should be both the same for the population and the sample
+sd(ChiSqrPop)
+mean(ChiSqrPop)
+summary(ChiSqrPop)
+##e/f) What is the mean & standard deviation of sample size = 50 from 10k # of samples?
+xbarGenerator = function(sampleSize = 50,number_of_samples = 10000) {
+    xBarVec = c()
+    for(i in 1:number_of_samples) {
+        theSample = sample(ChiSqrPop,sampleSize)
+        xbar = mean(theSample)
+        xBarVec = c(xBarVec, xbar)
+    }
+    return(xBarVec)
+}
+
+xbars = xbarGenerator(50,10000)
+length(xbars)
+#> [1] 1000
+hist(xbars)
+sd(xbars)
+mean(xbars)
+summary(xbars)
+```
+
+```{r}
+#3. T-Test 6-step hypothesis test
+## Test Mean Age is different from populaiton21. Assume Normal Distribution. 
+### Ho sample age (mu) = 21
+### Ha sample age (mu) NE 21
+PatronID = as.factor(c(1,2,3,4,5,6,7))
+age = c(25, 19, 37, 29, 40, 28, 31)
+BeachComber = data.frame(Patron = PatronID, Age = age)
+BeachComber
+hist(BeachComber$Age, main = "BeachComber # of Patrons by Age", xlab = "Age", ylab = "Patrons")
+summary(BeachComber)
+sd(BeachComber$Age)
+t.test(BeachComber$Age, mu=21)
+# Ho: mu=21
+#Reject the null hypothesis. Beach Comber patrons mean age is different (p-value<0.01). 
+```
+
+
+```{r}
+#4. Key Take-aways
+```
+
+
