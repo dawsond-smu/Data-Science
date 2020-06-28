@@ -1,6 +1,10 @@
 Case Study 1
-##Budweiser
+
+##Budweiser###
+
 ###2410 Beers 558 Breweries
+
+
 The purpose of the project is to conduct the analysis of key attributes of beers and their respective breweries, how they relate under the Budweiser umbrella. Whether we can leverage these relationships is still to be determined post EDA. Giving due course to this process, we have unveiled that ABV and IBU attributes have some correlation and this relationship can be deployed to predict whether a beer should be categorized as IPA or non-IPA for future beers, given IPAs are the most common in the USA. 
 
 Statistical technics have empowered us to investigate the data in multiple lenses. For instance, we have realized through our analysis that KNN classification works well when it comes to predict the ALE vs IPA beers using their ABV and IBU as good predictors. But we did not limit us in the one technique, rather we ventured into further analysis of ABV and IBU data to evaluate the normality and variance of each of these two dataset, and came to conclusion that we can use these data for multiple regression as the datasets do not corroborate with the assumptions required to perform the regression. Then, again we indulge ourselves with another technic, that is Naïve Bayes, recently learnt in the class, but resolved to evaluate KNN-Means; producing increased precision at the expense of recall. 
