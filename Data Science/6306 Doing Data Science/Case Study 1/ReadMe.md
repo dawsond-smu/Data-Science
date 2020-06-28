@@ -1,8 +1,8 @@
 Case Study 1
 
-##Budweiser###
+Budweiser
 
-###2410 Beers 558 Breweries
+2410 Beers 558 Breweries
 
 
 The purpose of the project is to conduct the analysis of key attributes of beers and their respective breweries, how they relate under the Budweiser umbrella. Whether we can leverage these relationships is still to be determined post EDA. Giving due course to this process, we have unveiled that ABV and IBU attributes have some correlation and this relationship can be deployed to predict whether a beer should be categorized as IPA or non-IPA for future beers, given IPAs are the most common in the USA. 
